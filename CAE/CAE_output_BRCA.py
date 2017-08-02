@@ -209,7 +209,7 @@ for i in xrange(len(repAll)):
 	repAll[i, :] /= 1000.
 
 
-# this shows the encodeing and decoding for some random images
+# this shows the encoding and decoding for some random images
 ims = getBatch(101, imagePath)
 for i in xrange(100):
 	image.array_to_img(ims[i] * 255.).save(outputName + '/' + str(i) + 'A.png')

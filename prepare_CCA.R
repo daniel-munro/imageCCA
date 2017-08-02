@@ -39,10 +39,10 @@ samples <- read_tsv("BRCA_data/images/image_files.txt", col_types='cccccc')
 
 expr <- read.table("BRCA_data/expression/RNA-Seq_BRCA.txt") %>% as.matrix()
 
-images_CAE3_PCA <- read.csv("BRCA/cae_pca_brca_repPCA.csv", header=F, row.names=1) %>% as.matrix()
+images <- read.csv("BRCA/CAE_output_BRCA_repPCA.csv", header=F, row.names=1) %>% as.matrix()
 prepare_CCA_files(
   expr = expr,
-  images = images_CAE3_PCA,
+  images = images,
   samples = samples,
   expr_outfile = "BRCA/CCA_input_expr.txt",
   image_outfile = "BRCA/CCA_input_image.txt",
@@ -50,10 +50,10 @@ prepare_CCA_files(
   image_name_outfile = "BRCA/CCA_images.txt"
 )
 
-images_CAE3_discrim_PCA <- PCA_whiten(images_CAE3_discrim)
+images_discrim <- PCA_whiten(images_CAE3_discrim)
 prepare_CCA_files(
   expr = expr,
-  images = images_CAE3_discrim_PCA,
+  images = images_discrim,
   samples = samples,
   expr_outfile = "BRCA_discrim/CCA_input_expr.txt",
   image_outfile = "BRCA_discrim/CCA_input_image.txt",
@@ -68,10 +68,10 @@ samples <- read_tsv("LGG_data/images/image_files.txt", col_types='cccccc')
 
 expr <- read.table("LGG_data/expression/RNA-Seq_LGG.txt") %>% as.matrix()
 
-images_CAE3_PCA <- read.csv("LGG/cae_pca_lgg_repPCA.csv", header=F, row.names=1) %>% as.matrix()
+images <- read.csv("LGG/CAE_output_LGG_repPCA.csv", header=F, row.names=1) %>% as.matrix()
 prepare_CCA_files(
   expr = expr,
-  images = images_CAE3_PCA,
+  images = images,
   samples = samples,
   expr_outfile = "LGG/CCA_input_expr.txt",
   image_outfile = "LGG/CCA_input_image.txt",
@@ -79,10 +79,10 @@ prepare_CCA_files(
   image_name_outfile = "LGG/CCA_images.txt"
 )
 
-images_CAE3_discrim_PCA <- PCA_whiten(images_CAE3_discrim)
+images_discrim <- PCA_whiten(images_CAE3_discrim)
 prepare_CCA_files(
   expr = expr,
-  images = images_CAE3_discrim_PCA,
+  images = images_discrim,
   samples = samples,
   expr_outfile = "LGG_discrim/CCA_input_expr.txt",
   image_outfile = "LGG_discrim/CCA_input_image.txt",
@@ -98,10 +98,10 @@ expr <- read.table("GTEx_data/expression/RNA-Seq_GTEx.txt") %>% as.matrix()
 samples <- data_frame(sample = rownames(expr),
                       image = str_c(sample, '.jpg'))
 
-images_CAE3_PCA <- read.csv("GTEx/cae_pca_gtex_repPCA.csv", header=F, row.names=1) %>% as.matrix()
+images <- read.csv("GTEx/CAE_output_GTEx_repPCA.csv", header=F, row.names=1) %>% as.matrix()
 prepare_CCA_files(
   expr = expr,
-  images = images_CAE3_PCA,
+  images = images,
   samples = samples,
   expr_outfile = "GTEx/CCA_input_expr.txt",
   image_outfile = "GTEx/CCA_input_image.txt",
@@ -109,10 +109,10 @@ prepare_CCA_files(
   image_name_outfile = "GTEx/CCA_images.txt"
 )
 
-images_CAE3_discrim_PCA <- PCA_whiten(images_CAE3_discrim)
+images_discrim <- PCA_whiten(images_CAE3_discrim)
 prepare_CCA_files(
   expr = expr,
-  images = images_CAE3_discrim_PCA,
+  images = images_discrim,
   samples = samples,
   expr_outfile = "GTEx_discrim/CCA_input_expr.txt",
   image_outfile = "GTEx_discrim/CCA_input_image.txt",
